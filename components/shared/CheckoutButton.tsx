@@ -8,7 +8,9 @@ import Checkout from "./Checkout"
 
 function CheckoutButton({event} : {event: IEvent}) {
   const {user} = useUser()
-  const userId = user?.publicMetadata.userId as string
+  
+  const userId = user?.publicMetadata.userId as string 
+  
   const hasEventFinished = new Date(event.endDateTime) < new Date()
 
   return (
