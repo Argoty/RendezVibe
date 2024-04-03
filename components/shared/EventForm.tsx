@@ -20,7 +20,7 @@ import { eventFormSchema } from "@/lib/validators"
 import { eventDefaultValues } from "@/constants"
 
 import DropDown from "./DropDown"
-import FileUploader from "./FileUploader"
+import {FileUploader} from "./FileUploader"
 
 
 import DatePicker from "react-datepicker";
@@ -55,7 +55,7 @@ function EventForm({ userId, type, event, eventId }: EventFormProps) {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof eventFormSchema>) {
-    let uploadedImageUrl = values.imageUrl
+    let uploadedImageUrl = values.imageUrl    
 
     if (files.length > 0) {
       const uploadedImages = await startUpload(files)
@@ -78,7 +78,6 @@ function EventForm({ userId, type, event, eventId }: EventFormProps) {
         }
       } catch (err) {
         console.log(err);
-
       }
     }
     if (type === "Update") {
