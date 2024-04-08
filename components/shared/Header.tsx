@@ -8,9 +8,9 @@ import MobileNav from "./MobileNav"
 function Header() {
   return (
     <header className="w-full border-b">
-      <div className="wrapper flex items-center justify-between">
-        <Link href="/" className="w-36">
-          <Image src="/assets/images/logo.svg" width={128} height={38} alt="RendezVibe logo" />
+      <div className="flex items-center justify-between py-3 px-4">
+        <Link href="/" className="w-46">
+          <Image src="/assets/images/logo.svg" width={200} height={88} alt="RendezVibe logo"/>
         </Link>
 
         <SignedIn>

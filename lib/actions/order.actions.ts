@@ -98,7 +98,7 @@ export async function getOrdersByEvent({ searchString, eventId }: GetOrdersByEve
                     eventTitle: '$event.title',
                     eventId: '$event._id',
                     buyer: {
-                        $concat: ['$buyer.firstName', ' ', '$buyer.lastName'],
+                        $concat: ['$buyer.username'],
                     },
                 },
             },
@@ -134,7 +134,7 @@ export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUs
                 populate: {
                     path: 'organizer',
                     model: User,
-                    select: '_id firstName lastName',
+                    select: '_id username',
                 },
             })
 

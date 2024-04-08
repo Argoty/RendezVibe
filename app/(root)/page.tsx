@@ -7,7 +7,7 @@ import Search from "@/components/shared/Search";
 import { SearchParamProps } from "@/types";
 import CategoryFilter from "@/components/shared/CategoryFilter";
 
-export default async function Home({searchParams}: SearchParamProps) {
+export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams?.query as string) || "";
   const category = (searchParams?.category as string) || "";
@@ -19,28 +19,27 @@ export default async function Home({searchParams}: SearchParamProps) {
     limit: 6
   })
 
-  
+
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
+      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-3 md:py-3">
         <div className="wrapper grid grid-cols-1 md:grid-cols-2 gap-5 2xl:gap-0">
-          <div className="flex flex-col justify-center gap-8">
-            <h1 className="h1-bold">Host, Connect, Celebrate: Your Events, Our Platform!</h1>
-            <p className="p-regular-20 md:p-regular-24">Book and learn helpful tips from 3,168+ mentors in world-class companies with our global community.</p>
+          <Image src="/assets/images/hero.png" alt="hero" width={1000} height={1000} className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]" />
+          <div className="flex flex-col justify-center gap-3">
+            <h1 className="h1-bold">Plan, Connect, and Revel: Your Events, Powered by Our Platform!</h1>
+            <p className="p-regular-20 md:p-regular-24">Reserve and learn useful tips from a global community in top-tier companies.</p>
             <Button asChild size="lg" className="button w-full sm:w-fit">
               <Link href="#events">Explore now</Link>
             </Button>
           </div>
-
-          <Image src="/assets/images/hero.png" alt="hero" width={1000} height={1000} className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]" />
         </div>
       </section>
 
       <section id="events" className="flex wrapper my-8 flex-col gap-8 md:gap-12">
-        <h2 className="h2-bold">Trust by <br/> Thousands of Events</h2>
+        <h2 className="h3-bold">Reliability demonstrated through<br /> a multitude of events</h2>
         <div className="flex w-full flex-col gap-5 md:flex-row">
-          <Search/>
-          <CategoryFilter/>
+          <Search />
+          <CategoryFilter />
         </div>
 
         <Collection
@@ -49,8 +48,8 @@ export default async function Home({searchParams}: SearchParamProps) {
           emptyStateSubtext="Come back later"
           collectionType="All_Events"
           limit={6}
-          page={1}
-          totalPages={2}
+          page={page}
+          totalPages={events?.totalPages}
         />
       </section>
     </>

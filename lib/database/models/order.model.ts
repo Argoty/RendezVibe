@@ -10,8 +10,7 @@ export interface IOrder extends Document {
   }
   buyer: {
     _id: string
-    firstName: string
-    lastName: string
+    username: string
   }
 }
 

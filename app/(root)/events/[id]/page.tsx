@@ -39,7 +39,7 @@ async function EventDetailPage({ params: { id }, searchParams}: SearchParamProps
                                 </div>
                                 <p className="p-medium-18 ml-2 mt-2 sm:mt-0">
                                     By{' '}
-                                    <span className="text-primary-500">{event.organizer.firstName} {event.organizer.lastName}</span>
+                                    <span className="text-primary-500">{event.organizer.username}</span>
                                 </p>
                             </div>
                         </div>
@@ -101,9 +101,9 @@ async function EventDetailPage({ params: { id }, searchParams}: SearchParamProps
                     emptyTitle="No Events found"
                     emptyStateSubtext="Come back later"
                     collectionType="All_Events"
-                    limit={6}
-                    page={1}
-                    totalPages={2}
+                    limit={3}
+                    page={searchParams.page as string}
+                    totalPages={relatedEvents?.totalPages}
                 />
             </section>
         </>

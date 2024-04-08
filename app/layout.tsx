@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
-const poppins = Poppins({
+const roboto = Roboto({
   subsets: ["latin"],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-poppins'
+  display: 'auto',
+  weight: ['400', '500', '700', '900'],
+  variable: '--font-roboto'
 });
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={poppins.className}>{children}</body>
+        <body className={roboto.className}>{children}</body>
       </html>
     </ClerkProvider>
 

@@ -1,5 +1,6 @@
 import { IEvent } from "@/lib/database/models/event.model"
 import Card from "./Card"
+import Pagination from "./Pagination"
 
 type CollectionProps = {
   data: IEvent[],
@@ -35,12 +36,15 @@ function Collection({
 
                   return (
                     <li key={event._id} className="flex justify-center">
-                      <Card event={event} hasOrderLink={hasOrderLink} hidePrice={hidePrice}/>
+                      <Card event={event} hasOrderLink={hasOrderLink} hidePrice={hidePrice} />
                     </li>
                   )
                 })
               }
             </ul>
+            {
+              totalPages > 1 && <Pagination page={page} totalPages={totalPages} urlParamName={urlParamName} />
+            }
           </div>
         ) :
           <div className="flex-center wrapper min-h-[200px] w-full flex-col gap-3 rounded-[14px] bg-grey-50 py-28 text-center">
